@@ -1,12 +1,16 @@
-<div class="flex gap-3 message-item" [class.user-message]="isUser" [class.assistant-message]="!isUser">
+<div
+  class="flex gap-3 message-item"
+  [class.user-message]="isUser"
+  [class.assistant-message]="!isUser"
+>
   <!-- Avatar -->
   <div class="flex items-center justify-center avatar-container" aria-hidden="true">
     @if (isUser) {
       <!-- User Initials / Icon -->
-      <span class="user-initials">U</span>
+      <span class="user-initials"><i class="fa-solid fa-user"></i></span>
     } @else {
       <!-- SaraAI Icon -->
-      <i class="fas fa-leaf assistant-logo"></i>
+      <i class="fa-solid fa-diamond assistant-logo"></i>
     }
   </div>
 
@@ -15,8 +19,11 @@
     <div class="bubble">
       <div [innerHTML]="htmlContent"></div>
     </div>
-    <span class="timestamp" [attr.aria-label]="'Sent at ' + (message().timestamp | date:'shortTime')">
-      {{ message().timestamp | date:'h:mm a' }}
+    <span
+      class="timestamp"
+      [attr.aria-label]="'Sent at ' + (message().timestamp | date: 'shortTime')"
+    >
+      {{ message().timestamp | date: 'h:mm a' }}
     </span>
   </div>
 </div>

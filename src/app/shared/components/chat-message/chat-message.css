@@ -72,8 +72,8 @@
 }
 
 .bubble {
-  padding: 0.875rem 1.25rem;
-  border-radius: 1rem;
+  padding: 0.575rem 1.25rem;
+  border-radius: 0.7rem;
   box-shadow: var(--shadow-sm);
   word-break: break-word;
 }
