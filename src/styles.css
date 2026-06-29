@@ -3,27 +3,68 @@
 @import 'tailwindcss';
 
 :root {
-
   --font-heading: 'Playfair Display', serif;
   --font-body: 'Inter', sans-serif;
 
-  /* Background */
-  --background: #ffe7b6;
-  /* Alternate Sections */
-  --background-soft: #faf6f2;
-  /* Cards / Panels */
-  --surface: #f5efe9;
-  --border: #e7ddd3;
-  --surface-hover: #efe6de;
-  --text-primary: #2f2b28;
-  --text-secondary: #68615b;
-  --accent: #e8d8cf;
-  --accent-hover: #dcc9bf;
+  /* Color Palette */
+  --background: #fffcdb;
+  --border: #e8ddc8;
+  --text-primary: #2d2926;
+  --text-secondary: #645d56;
+
+  /* Additional UI Design Tokens */
+  --accent: #d87a56;
+  --accent-hover: #c26543;
+  --accent-light: #f4e8db;
+  --message-user-bg: #f5efe0;
+  --message-ai-bg: transparent;
+  --input-bg: #fffdf4;
+  --card-bg: #fffdf4;
+  --card-hover-bg: #fbf6e5;
+  --glass-bg: rgba(255, 252, 219, 0.75);
+
+  /* Shadow & Blur */
+  --shadow-sm: 0 0.125rem 0.5rem rgba(45, 41, 38, 0.04);
+  --shadow-md: 0 0.25rem 1rem rgba(45, 41, 38, 0.06);
+  --shadow-lg: 0 0.5rem 1.5rem rgba(45, 41, 38, 0.08);
+  --blur-radius: 1rem;
 }
 
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+*::selection {
+  color: #fff;
+  background-color: var(--accent);
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--background);
+  color: var(--text-primary);
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
-  background-color: var(--background-soft);
+  color: var(--text-primary);
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
 }

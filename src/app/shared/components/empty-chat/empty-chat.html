@@ -1,0 +1,17 @@
+<div class="flex flex-col items-center justify-center h-full welcome-state px-4 md:px-8">
+  <div class="welcome-header text-center">
+    <h1 class="hero-title">Hello, I'm <span class="brand-highlight">Sara</span></h1>
+    <p class="hero-subtitle">How can I help you today?</p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-[56rem] mt-8 cards-container">
+    @for (item of suggestions; track item.prompt) {
+      <app-suggestion-card
+        [title]="item.title"
+        [description]="item.description"
+        [icon]="item.icon"
+        (cardClick)="selectSuggestion(item.prompt)"
+      />
+    }
+  </div>
+</div>

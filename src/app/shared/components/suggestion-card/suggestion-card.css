@@ -1,0 +1,116 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.suggestion-card-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  width: 100%;
+  padding: 1.25rem;
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  cursor: pointer;
+  outline: none;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-left-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.icon-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.75rem;
+  background-color: var(--accent-light);
+  color: var(--accent);
+  border: 1px solid var(--border);
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+}
+
+.suggestion-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.card-text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.card-title {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.card-description {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.arrow-icon {
+  width: 1.125rem;
+  height: 1.125rem;
+  color: var(--accent);
+  opacity: 0;
+  transform: translateX(-0.5rem);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+  margin-left: 0.75rem;
+}
+
+/* Hover States */
+.suggestion-card-btn:hover {
+  background-color: var(--card-hover-bg);
+  border-color: var(--accent);
+  transform: translateY(-0.1875rem);
+  box-shadow: var(--shadow-md);
+}
+
+.suggestion-card-btn:hover .icon-badge {
+  background-color: var(--accent);
+  color: var(--background);
+  border-color: var(--accent);
+}
+
+.suggestion-card-btn:hover .arrow-icon {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.suggestion-card-btn:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.suggestion-card-btn:focus-visible {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-light), var(--shadow-sm);
+}

@@ -1,0 +1,28 @@
+.chat-page {
+  background-color: var(--background);
+}
+
+.messages-viewport {
+  padding: 1.5rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .messages-viewport {
+    padding: 2rem;
+  }
+}
+
+.conversation-area {
+  max-width: 56rem;
+  width: 100%;
+  margin: 0 auto;
+  /* Occupy full height when empty to center the empty state component */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.message-list {
+  width: 100%;
+  padding-bottom: 2rem;
+}

@@ -1,1 +1,25 @@
-<p>chat works!</p>
+<app-chat-layout>
+  <div class="flex-1 flex flex-col min-h-0 chat-page">
+    <!-- Messages Scroll Container -->
+    <div class="flex-1 overflow-y-auto min-h-0 messages-viewport" #scrollContainer>
+      <div class="mx-auto w-full conversation-area">
+        @if (messages().length === 0) {
+          <app-empty-chat (suggestionSelected)="onSendMessage($event)" />
+        } @else {
+          <div class="message-list flex flex-col">
+            @for (msg of messages(); track msg.timestamp.getTime() + '-' + $index) {
+              <app-chat-message [message]="msg" />
+            }
+            
+            @if (isTyping()) {
+              <app-typing-indicator />
+            }
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Fixed Input Area -->
+    <app-chat-input (send)="onSendMessage($event)" />
+  </div>
+</app-chat-layout>

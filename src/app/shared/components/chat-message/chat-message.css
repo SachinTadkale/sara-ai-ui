@@ -1,0 +1,120 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.message-item {
+  display: flex;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  animation: messageEntrance 0.25s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.message-item.user-message {
+  flex-direction: row-reverse;
+}
+
+.message-item.assistant-message {
+  flex-direction: row;
+}
+
+.avatar-container {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.user-message .avatar-container {
+  background-color: var(--accent);
+  color: var(--background);
+  border-color: var(--accent);
+}
+
+.assistant-message .avatar-container {
+  background-color: var(--accent-light);
+  color: var(--accent);
+}
+
+.user-initials {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.assistant-logo {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.message-content-wrapper {
+  display: flex;
+  max-width: 95%; /* Mobile default */
+}
+
+@media (min-width: 768px) {
+  .message-content-wrapper {
+    max-width: 75%; /* Desktop */
+  }
+}
+
+.user-message .message-content-wrapper {
+  align-items: flex-end;
+}
+
+.assistant-message .message-content-wrapper {
+  align-items: flex-start;
+}
+
+.bubble {
+  padding: 0.875rem 1.25rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-sm);
+  word-break: break-word;
+}
+
+.user-message .bubble {
+  background-color: var(--message-user-bg);
+  border: 1px solid var(--border);
+  border-top-right-radius: 0.125rem;
+}
+
+.assistant-message .bubble {
+  background-color: var(--message-ai-bg);
+  border: 1px solid var(--border);
+  border-top-left-radius: 0.125rem;
+}
+
+.message-text {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-primary);
+  white-space: pre-wrap;
+}
+
+.timestamp {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+  opacity: 0.8;
+  padding: 0 0.25rem;
+}
+
+@keyframes messageEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
