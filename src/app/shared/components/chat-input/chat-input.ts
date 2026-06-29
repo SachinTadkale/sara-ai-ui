@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, output, signal } from '@angular/core';
+import { Component, ElementRef, ViewChild, input, output, signal } from '@angular/core';
 
 @Component({
   selector: 'app-chat-input',
@@ -7,7 +7,10 @@ import { Component, ElementRef, ViewChild, output, signal } from '@angular/core'
   styleUrl: './chat-input.css'
 })
 export class ChatInput {
+  isTyping = input<boolean>(false);
   send = output<string>();
+  stop = output<void>();
+
   inputValue = signal<string>('');
 
   @ViewChild('textarea') textarea!: ElementRef<HTMLTextAreaElement>;
@@ -27,7 +30,7 @@ export class ChatInput {
 
   triggerSend() {
     const val = this.inputValue().trim();
-    if (val) {
+    if (val && !this.isTyping()) {
       this.send.emit(val);
       this.inputValue.set('');
       if (this.textarea) {
@@ -35,6 +38,10 @@ export class ChatInput {
         this.textarea.nativeElement.style.height = 'auto';
       }
     }
+  }
+
+  onStop() {
+    this.stop.emit();
   }
 
   adjustHeight() {

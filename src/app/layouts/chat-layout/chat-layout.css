@@ -34,19 +34,17 @@
   margin: 0 auto;
 }
 
-
 .logo-container {
   color: var(--accent);
 }
 
 .logo-icon {
-  width: 2rem;
-  height: 2rem;
+  font-size: 1rem;
   transition: transform 0.3s ease;
 }
 
 .logo-container:hover .logo-icon {
-  transform: rotate(15deg) scale(1.05);
+  transform: rotate(90deg) scale(1.2);
 }
 
 .brand-name {

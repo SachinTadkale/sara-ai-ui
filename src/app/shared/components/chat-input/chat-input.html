@@ -2,9 +2,7 @@
   <div class="chat-input-container">
     <!-- Attachment Button Placeholder -->
     <!-- <button class="action-btn" type="button" aria-label="Attach file" title="Attach file (coming soon)">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
-      </svg>
+      <i class="fas fa-paperclip"></i>
     </button> -->
 
     <!-- Textarea -->
@@ -22,32 +20,33 @@
     <div class="flex items-center gap-1 input-actions-right">
       <!-- Microphone Button Placeholder -->
       <!-- <button class="action-btn" type="button" aria-label="Use voice input" title="Voice input (coming soon)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/>
-          <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8"/>
-        </svg>
+        <i class="fas fa-microphone"></i>
       </button> -->
 
-      <!-- Send Button -->
-      <button
-        class="send-btn"
-        type="button"
-        (click)="triggerSend()"
-        [disabled]="!inputValue().trim()"
-        aria-label="Send message"
-      >
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+      <!-- Conditionally render Send or Pause/Stop Button -->
+      @if (isTyping()) {
+        <!-- Pause/Stop Button -->
+        <button
+          class="send-btn stop-btn"
+          type="button"
+          (click)="onStop()"
+          aria-label="Stop generating"
+          title="Stop generating"
         >
-          <line x1="22" y1="2" x2="11" y2="13"></line>
-          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-        </svg>
-      </button>
+          <i class="fas fa-stop"></i>
+        </button>
+      } @else {
+        <!-- Send Button -->
+        <button
+          class="send-btn"
+          type="button"
+          (click)="triggerSend()"
+          [disabled]="!inputValue().trim()"
+          aria-label="Send message"
+        >
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      }
     </div>
   </div>
   <div class="input-info-text">SaraAI can make mistakes. Verify important info.</div>

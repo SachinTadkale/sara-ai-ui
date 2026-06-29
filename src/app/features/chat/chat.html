@@ -20,6 +20,10 @@
     </div>
 
     <!-- Fixed Input Area -->
-    <app-chat-input (send)="onSendMessage($event)" />
+    <app-chat-input 
+      [isTyping]="isTyping()" 
+      (send)="onSendMessage($event)" 
+      (stop)="onStopMessage()" 
+    />
   </div>
 </app-chat-layout>
