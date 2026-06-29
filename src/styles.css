@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import 'tailwindcss';
+
+:root {
+
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Background */
+  --background: #ffe7b6;
+  /* Alternate Sections */
+  --background-soft: #faf6f2;
+  /* Cards / Panels */
+  --surface: #f5efe9;
+  --border: #e7ddd3;
+  --surface-hover: #efe6de;
+  --text-primary: #2f2b28;
+  --text-secondary: #68615b;
+  --accent: #e8d8cf;
+  --accent-hover: #dcc9bf;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-heading);
+  background-color: var(--background-soft);
+}
